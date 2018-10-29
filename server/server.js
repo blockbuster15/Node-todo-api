@@ -116,7 +116,6 @@ app.get('/users/me', authenticate, (req, res) => {
 });
 
 //POST /users/login {email,password}
-
 app.post('/users/login', (req,res) => {
   var body = _.pick(req.body, ['email', 'password']);
 
@@ -125,7 +124,7 @@ app.post('/users/login', (req,res) => {
       res.header('x-auth', token).send(user);
      });
   }).catch((e) => {
-    res.send(400).send();
+    res.sendStatus(400).send();
   });
 });
 
