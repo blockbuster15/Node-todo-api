@@ -7,7 +7,6 @@ const {Todo} = require('./../models/todo');
 const {User} = require('./../models/user');
 const {todos, populateTodos, users, populateUsers} = require('./seed/seed');
 
-
 beforeEach(populateUsers);
 beforeEach(populateTodos);
 
@@ -124,7 +123,7 @@ describe('DELETE /todos/:id', () => {
         }
 
         Todo.findById(hexId).then((todo) => {
-          expect(todo).not.toBeTruthy();
+          expect(todo).toBeFalsy();
           done();
         }).catch((e) => done(e));
       });
@@ -184,7 +183,7 @@ describe('PATCH /todos/:id', () => {
       .expect((res) => {
         expect(res.body.todo.text).toBe(text);
         expect(res.body.todo.completed).toBe(true);
-        expect(typeof res.body.todo.completedAt).toEqual('number');
+        expect(typeof res.body.todo.completedAt).toBe('number');
       })
       .end(done);
   });
@@ -219,7 +218,7 @@ describe('PATCH /todos/:id', () => {
       .expect((res) => {
         expect(res.body.todo.text).toBe(text);
         expect(res.body.todo.completed).toBe(false);
-        expect(res.body.todo.completedAt).not.toBeTruthy();
+        expect(res.body.todo.completedAt).toBeFalsy();
       })
       .end(done);
   });
@@ -271,7 +270,8 @@ describe('POST /users', () => {
 
         User.findOne({email}).then((user) => {
              expect(user).toBeTruthy();
-             expect(Object.is(user.password,password)).toBe(false);
+             expect(user.password).not.toBe(password);
+             //expect(Object.is(user.password,password)).toBe(false);
              done();
         }).catch((e) => done(e));
       });

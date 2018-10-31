@@ -5,8 +5,8 @@ mongoose.connect(process.env.MONGODB_URI);
 
 // let db = {
 //   localhost: 'mongodb://localhost:27017/TodoApp',
-//   mlab: 'mongodb://varun15@:varun@15@ds145563.mlab.com:45563/node_todo_api'
+//   mlab: 'mongodb://todoapp:varun@15@ds145573.mlab.com:45573/todoapp'
 // };
-// mongoose.connect(process.env.PORT ? db.localhost : db.mlab);
+// mongoose.connect(process.env.PORT ? db.mlab : db.localhost);
 
 module.exports = {mongoose};
