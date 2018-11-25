@@ -245,12 +245,10 @@ describe('GET /users/me', () => {
        })
        .end(done);
  });
-
 });
 
 describe('POST /users', () => {
   it('should crete a user', (done) => {
-
     var email = 'example@example.com';
     var password = '123mnb';
 
@@ -331,7 +329,7 @@ describe('POST /users/login', () => {
        .post('/users/login')
        .send({
          email: users[1].email,
-         password: users[1].password +'1'
+         password: users[1].password + '1'
        })
        .expect(400)
        .expect((res) => {

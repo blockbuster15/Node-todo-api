@@ -1,5 +1,5 @@
 var env = process.env.NODE_ENV || 'development';
-// process.env.MONGODB_URI = 'mongodb://todoapp:varun@15@ds145573.mlab.com:45573/todoapp';
+// process.env.MONGODB_URI = 'mongodb://todoapi:nodetodoapi1@ds039351.mlab.com:39351/todo_api';
 
 if (env === 'development' || env === 'test') {
    var config = require('./config.json');
